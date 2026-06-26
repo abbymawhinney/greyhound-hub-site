@@ -1,7 +1,9 @@
 ---
+import BlogCard from "@/components/BlogCard.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -10,6 +12,9 @@ import { FaCheck } from "react-icons/fa";
 const homepage = await getListPage("homepage", "-index");
 const call_to_action = await getListPage("ctaSection", "call-to-action");
 const testimonial = await getListPage("testimonialSection", "testimonial");
+
+const allPosts = await getSinglePage("blog");
+const latestPosts = sortByDate(allPosts).slice(0, 3);
 
 const { banner, features } = homepage.data;
 ---
@@ -58,7 +63,31 @@ const { banner, features } = homepage.data;
   </section>
   <!-- /Banner -->
 
-  <!-- Features -->
+  <!-- Latest Posts -->
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center mb-10 text-center">
+        <div class="lg:col-7">
+          <h2 class="mb-4">Latest from the blog</h2>
+        </div>
+      </div>
+      <div class="row">
+        {
+          latestPosts.map((post) => (
+            <div class="mb-14 md:col-4">
+              <BlogCard data={post} />
+            </div>
+          ))
+        }
+      </div>
+      <div class="text-center mt-4">
+        <a class="btn btn-outline-primary" href="/blog">View all blogs</a>
+      </div>
+    </div>
+  </section>
+  <!-- /Latest Posts -->
+
+  <!-- About -->
   {
     features.map((feature, index: number) => (
       <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
@@ -97,8 +126,7 @@ const { banner, features } = homepage.data;
       </section>
     ))
   }
-  <!-- /Features -->
+  <!-- /About -->
 
-  <Testimonial testimonial={testimonial} />
-  <CallToAction call_to_action={call_to_action} />
+
 </Base>

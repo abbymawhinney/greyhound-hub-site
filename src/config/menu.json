@@ -1,19 +1,54 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
+      "name": "About Us",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Who We Are",
+          "url": "/about"
+        },
+        {
+          "name": "Winston's Story",
+          "url": "#"
+        }
+      ]
     },
     {
-      "name": "About",
-      "url": "/about"
+      "name": "Who adopt a greyhound?",
+      "url": "#"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Resources",
+      "url": "",
+      "hasChildren": true,
+      "megaMenu": true,
+      "featuredResources": [
+        {
+          "name": "About The Greyhound Hub",
+          "url": "/about"
+        },
+        {
+          "name": "Winston's Story",
+          "url": "#"
+        },
+        {
+          "name": "Why Adopt a Greyhound?",
+          "url": "#"
+        },
+        {
+          "name": "Contact Us",
+          "url": "/contact"
+        }
+      ]
     },
     {
-      "name": "Pages",
+      "name": "Contact Us",
+      "url": "/contact"
+    },
+    {
+      "name": "Pages (will get rid later)",
       "url": "",
       "hasChildren": true,
       "children": [

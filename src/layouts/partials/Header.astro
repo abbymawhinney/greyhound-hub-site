@@ -3,6 +3,10 @@ import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { humanize } from "@/lib/utils/textConverter";
 import { IoSearch } from "react-icons/io5";
 
 export interface ChildNavigationLink {
@@ -15,11 +19,17 @@ export interface NavigationLink {
   url: string;
   hasChildren?: boolean;
   children?: ChildNavigationLink[];
+  megaMenu?: boolean;
+  featuredResources?: ChildNavigationLink[];
 }
 
 const { main }: { main: NavigationLink[] } = menu;
 const { navigation_button, settings } = config;
 const { pathname } = Astro.url;
+
+const allPosts = await getSinglePage("blog");
+const latestNavPosts = sortByDate(allPosts).slice(0, 5);
+const categories = await getTaxonomy("blog", "categories");
 ---
 
 <header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
@@ -53,7 +63,70 @@ const { pathname } = Astro.url;
       {
         main.map((menu) => (
           <>
-            {menu.hasChildren ? (
+            {menu.megaMenu ? (
+              <li class="nav-item nav-dropdown group relative">
+                <input
+                  type="checkbox"
+                  id={`submenu-${menu.name}`}
+                  class="peer hidden lg:hidden"
+                />
+                <label
+                  for={`submenu-${menu.name}`}
+                  class="nav-link inline-flex items-center"
+                >
+                  {menu.name}
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </label>
+                <div class="nav-mega-menu hidden peer-checked:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
+                  <div class="lg:grid lg:grid-cols-3 lg:gap-8">
+                    <div class="mb-6 lg:mb-0">
+                      <p class="nav-mega-heading">All blogs</p>
+                      <ul>
+                        <li class="nav-dropdown-item">
+                          <a href="/blog" class="nav-mega-link">View all posts</a>
+                        </li>
+                        {categories.map((cat) => (
+                          <li class="nav-dropdown-item">
+                            <a href={`/categories/${cat}`} class="nav-mega-link">
+                              {humanize(cat)}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div class="mb-6 lg:mb-0">
+                      <p class="nav-mega-heading">Latest blogs</p>
+                      <ul>
+                        {latestNavPosts.map((post) => (
+                          <li class="nav-dropdown-item">
+                            <a
+                              href={`/${settings.blog_folder}/${post.id}`}
+                              class="nav-mega-link"
+                            >
+                              {post.data.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="nav-mega-heading">Featured resources</p>
+                      <ul>
+                        {menu.featuredResources?.map((item) => (
+                          <li class="nav-dropdown-item">
+                            <a href={item.url} class="nav-mega-link">
+                              {item.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ) : menu.hasChildren ? (
               <li class="nav-item nav-dropdown group relative">
                 <input
                   type="checkbox"

@@ -1,53 +1,50 @@
 ---
+meta_title: "The Greyhound Hub"
+description: "test"
+image: "/images/image-placeholder.png"
+draft: false
+
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Astro Project"
-  content: "Astroplate is a free starter template built with Astro and TailwindCSS, providing everything you need to jumpstart your Astro project and save valuable time."
-  image: "/images/banner.png"
+  title: "Welcome to the Greyhound Hub"
+  content: "Explore our pawsome resources and stay up-to-date with tips and tricks from the greyhound community."
+  image: "/images/winston-placeholder-landscape.jpg"
   button:
     enable: true
-    label: "Fork Deploy and Edit Online 🚀"
-    link: "https://app.sitepins.com/new/clone?name=Astroplate&repository=https://github.com/zeon-studio/astroplate?aff=astroplate"
+    label: "View all resources"
+    link: "/blog"
 
 # Features
 features:
-  - title: "What's Included in Astroplate"
-    image: "/images/service-1.png"
-    content: "Astroplate is a comprehensive starter template that includes everything you need to get started with your Astro project. What's Included in Astroplate"
+  - title: "Who we are"
+    image: "/images/winston-placeholder-square.jpg"
+    content: "Lorem ipsum - summary of who we are"
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Astro and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "#"
-
-  - title: "Discover the Key Features Of Astro"
-    image: "/images/service-2.png"
-    content: "Astro is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-    bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - "can't get rid of these bullet points, need to figure that out"
     button:
       enable: true
-      label: "Get Started Now"
-      link: "https://github.com/zeon-studio/astroplate"
+      label: "Learn more about us"
+      link: "/about"
 
-  - title: "The Top Reasons to Choose Astro for Your Next Project"
-    image: "/images/service-3.png"
-    content: "With Astro, you can build modern and content-focused websites without sacrificing performance or ease of use."
+  - title: "What we do"
+    image: "/images/winston-placeholder-square.jpg"
+    content: "Lorem ipsum about what we do"
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Astro a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+      - "point 1"
+      - "point 2"
     button:
       enable: false
-      label: ""
-      link: ""
+      label: "Learn more about what we do"
+      link: "#"
+
+  - title: "Got something you'd like to share?"
+    image: "/images/winston-placeholder-square.jpg"
+    content: "Lorem ipsum let us know if you have something to share or if you'd like to contribute"
+    bulletpoints:
+      - "example contribution 1"
+      - "example contribution 2"
+    button:
+      enable: true
+      label: "Get in touch"
+      link: "/contact"
 ---

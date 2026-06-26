@@ -42,6 +42,18 @@
   @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
 }
 
+.nav-mega-menu {
+  @apply bg-body dark:bg-darkmode-body z-10 rounded p-6 shadow-sm lg:w-[680px];
+}
+
+.nav-mega-heading {
+  @apply text-text-dark dark:text-darkmode-text-dark border-border dark:border-darkmode-border mb-3 border-b pb-2 text-xs font-bold uppercase tracking-wider;
+}
+
+.nav-mega-link {
+  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 text-sm font-semibold transition;
+}
+
 /* theme-switcher */
 .theme-switcher {
   @apply inline-flex;

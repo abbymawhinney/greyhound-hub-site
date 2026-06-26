@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Astroplate",
+    "title": "The Greyhound Hub",
     "base_url": "https://astroplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -17,24 +17,24 @@
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
-    "pagination": 2,
+    "pagination": 8,
     "summary_length": 200,
     "blog_folder": "blog"
   },
 
   "announcement": {
-    "enable": true,
+    "enable": false,
     "content": "<span class='text-center block'>♥️ Loving Astroplate? <a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>Please ⭐️ on Github</a></span>",
     "expire_days": 7
   },
 
   "params": {
-    "contact_form_action": "#",
+    "contact_form_action": "https://formspree.io/f/xvzjaker",
     "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
   },
 
   "navigation_button": {
-    "enable": true,
+    "enable": false,
     "label": "Github",
     "link": "https://github.com/zeon-studio/astroplate"
   },
@@ -53,7 +53,7 @@
   "metadata": {
     "meta_author": "zeon.studio",
     "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
+    "meta_description": "Welcome to the Greyhound Hub. Explore our resources and stay updated with tips and tricks from the greyhound community."
   },
 
   "llms": {
